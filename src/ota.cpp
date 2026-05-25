@@ -8,14 +8,14 @@
 #include "version.h"
 
 String versionURL =
-    "https://raw.githubusercontent.com/Water34545/smart-lamp/main/build/firmware.bin";
+    "https://raw.githubusercontent.com/Water34545/smart-lamp/main/build/version.json";
 
 void checkForOTAUpdate() {
 
     HTTPClient http;
     WiFiClientSecure client;
     client.setInsecure();
-    
+
     Serial.println("Checking firmware version...");
 
     http.begin(versionURL);
@@ -29,6 +29,9 @@ void checkForOTAUpdate() {
     }
 
     String payload = http.getString();
+
+    Serial.println("PAYLOAD:");
+    Serial.println(payload);
 
     http.end();
 

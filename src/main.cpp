@@ -5,7 +5,6 @@
 #include "ota.h"
 #include "version.h"
 
-#define FASTLED_RMT_BUILTIN_DRIVER 1
 #define LED_PIN     2
 #define NUM_LEDS    120
 #define BRIGHTNESS  80
@@ -37,6 +36,8 @@ void connectWiFi() {
 
 void setup() {
   Serial.begin(115200);
+  delay(3000);
+  Serial.println("BOOT START");
 
   // LED setup
   FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS);
@@ -49,7 +50,7 @@ void setup() {
 
 void loop() {
   for(int i = 0; i < NUM_LEDS; i++) {
-    leds[i] = CRGB::HotPink;   // Задаем красный цвет
+    leds[i] = CRGB::Green;   // Задаем красный цвет
     FastLED.show();        // Отправляем команду на отображение
     FastLED.delay(50);
     leds[i] = CRGB::Black; // Выключаем светодиод перед следующим шагом
