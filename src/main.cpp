@@ -50,7 +50,7 @@ void setup() {
 
 void loop() {
   for(int i = 0; i < NUM_LEDS; i++) {
-    leds[i] = CRGB::Green;   // Задаем красный цвет
+    leds[i] = CRGB::Blue;   // Задаем красный цвет
     FastLED.show();        // Отправляем команду на отображение
     FastLED.delay(50);
     leds[i] = CRGB::Black; // Выключаем светодиод перед следующим шагом
