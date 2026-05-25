@@ -5,5 +5,3 @@
 .vscode/ipch
 
 .DS_Store
-
-build/**/*
