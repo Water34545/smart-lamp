@@ -1,7 +1,9 @@
 #include <Arduino.h>
-#include "version.h"
 #include <WiFi.h>
 #include <FastLED.h>
+
+#include "ota.h"
+#include "version.h"
 
 #define FASTLED_RMT_BUILTIN_DRIVER 1
 #define LED_PIN     2
@@ -42,11 +44,12 @@ void setup() {
 
   // WiFi
   connectWiFi();
+  checkForOTAUpdate();
 }
 
 void loop() {
   for(int i = 0; i < NUM_LEDS; i++) {
-    leds[i] = CRGB::Yellow;   // Задаем красный цвет
+    leds[i] = CRGB::HotPink;   // Задаем красный цвет
     FastLED.show();        // Отправляем команду на отображение
     FastLED.delay(50);
     leds[i] = CRGB::Black; // Выключаем светодиод перед следующим шагом
