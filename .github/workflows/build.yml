@@ -4,9 +4,8 @@ on:
   push:
     branches:
       - main
-
-paths-ignore:
-  - 'build/**'
+    paths-ignore:
+      - 'build/**'
 
 permissions:
   contents: write
