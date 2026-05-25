@@ -1,8 +1,9 @@
 #include <Arduino.h>
-#define FASTLED_RMT_BUILTIN_DRIVER 1
+#include "version.h"
 #include <WiFi.h>
 #include <FastLED.h>
 
+#define FASTLED_RMT_BUILTIN_DRIVER 1
 #define LED_PIN     2
 #define NUM_LEDS    120
 #define BRIGHTNESS  80
