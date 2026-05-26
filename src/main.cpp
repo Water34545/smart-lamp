@@ -4,6 +4,7 @@
 
 #include "ota.h"
 #include "version.h"
+#include "./led/fire.h"
 
 #define LED_PIN     2
 #define NUM_LEDS    120
@@ -36,12 +37,9 @@ void connectWiFi() {
 
 void setup() {
   Serial.begin(115200);
-  delay(3000);
-  Serial.println("BOOT START");
 
   // LED setup
-  FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS);
-  FastLED.setBrightness(BRIGHTNESS); // Яркость (0-255)
+  FastLED.addLeds<WS2812B, LED_PIN, GRB>(leds, NUM_LEDS);
 
   // WiFi
   connectWiFi();
@@ -49,10 +47,5 @@ void setup() {
 }
 
 void loop() {
-  for(int i = 0; i < NUM_LEDS; i++) {
-    leds[i] = CRGB::Blue;   // Задаем красный цвет
-    FastLED.show();        // Отправляем команду на отображение
-    FastLED.delay(50);
-    leds[i] = CRGB::Black; // Выключаем светодиод перед следующим шагом
-  }
+  renderFire();
 }
