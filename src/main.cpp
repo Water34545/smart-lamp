@@ -5,14 +5,7 @@
 #include "ota.h"
 #include "version.h"
 #include "./led/fire.h"
-
-#define LED_PIN     2
-#define NUM_LEDS    120
-#define BRIGHTNESS  80
-#define LED_TYPE    WS2812B
-#define COLOR_ORDER GRB
-
-CRGB leds[NUM_LEDS];
+#include "./led/matrix.h"
 
 // WiFi
 const char* ssid = "VirreyTelecentro";
